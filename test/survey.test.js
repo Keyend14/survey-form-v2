@@ -10,9 +10,9 @@ describe("Survey Model", function(){
     it('Should return success message when input captcha matches.', function(){
         let surveyModel = new SurveyModel();
         let captcha = surveyModel.captcha;
-        let result = surveyModel.verifyCaptchaInput(captcha);
+        let result = surveyModel.generateCaptcha(captcha);
 
-        expect(result).to.equal("Success! Captcha input matched.");
+        expect(result).to.equal("xSuccess! Captcha input matched.");
     });
 
     it('Should return error message when input captcha does not matched.', function(){
