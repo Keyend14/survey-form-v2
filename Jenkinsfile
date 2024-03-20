@@ -1,16 +1,23 @@
 pipeline {
     agent any
     
-    environment {
-        NODE_ENV = 'test'
-    }
-    
     stages {
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
-                // Your build steps here
+                // Run npm install to install dependencies
+                script {
+                    sh 'npm install'
+                }
             }
         }
-        // Add more stages as needed
+        
+        stage('Run Tests') {
+            steps {
+                // Run mocha to execute tests
+                script {
+                    sh 'mocha'
+                }
+            }
+        }
     }
 }
